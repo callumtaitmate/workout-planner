@@ -45,9 +45,7 @@ export function AddFood({}) {
         </div>
       </div>{" "}
       <FoodResults results={results} />
-      <button className="mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        Add
-      </button>
+      
     </div>
   );
 }
