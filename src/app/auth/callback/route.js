@@ -11,9 +11,11 @@ export async function GET(req){
 
     const code = searchParams.get('code')
 
-    if (code) {
+    //if (code) <- add back in the future instead of the try as
+    //you're not actually verifying the email token passed back.
+    try {
         await supabase.auth.exchangeCodeForSession(code)
-    }
+    }  catch (error) {}
 
     return NextResponse.redirect(new URL('/todos', req.url))
 }
