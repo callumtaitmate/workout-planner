@@ -1,0 +1,101 @@
+
+{
+    "food": {
+      "foodId": "food_a06hreabh7agoeazgrtiobunge7b",
+      "uri": "http://www.edamam.com/ontologies/edamam.owl#Food_01006",
+      "label": "Cheese, Brie",
+      "knownAs": "Cheese, brie",
+      "nutrients": {
+        "ENERC_KCAL": 334,
+        "PROCNT": 20.8,
+        "FAT": 27.7,
+        "CHOCDF": 0.45,
+        "FIBTG": 0
+      },
+      "category": "Generic foods",
+      "categoryLabel": "food",
+      "image": "https://www.edamam.com/food-img/f53/f5340600239cf508f17b167265c6a1cf.jpg"
+    },
+    "measures": [
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+        "label": "Serving",
+        "weight": 28
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+        "label": "Ounce",
+        "weight": 28.349523125
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+        "label": "Whole",
+        "weight": 28.35
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+        "label": "Pound",
+        "weight": 453.59237
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_slice",
+        "label": "Slice",
+        "weight": 28.35
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+        "label": "Gram",
+        "weight": 1
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_round",
+        "label": "Round",
+        "weight": 227
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+        "label": "Cup",
+        "weight": 240,
+        "qualified": [
+          {
+            "qualifiers": [
+              {
+                "uri": "http://www.edamam.com/ontologies/edamam.owl#Qualifier_melted",
+                "label": "melted"
+              }
+            ],
+            "weight": 240
+          },
+          {
+            "qualifiers": [
+              {
+                "uri": "http://www.edamam.com/ontologies/edamam.owl#Qualifier_sliced",
+                "label": "sliced"
+              }
+            ],
+            "weight": 144
+          }
+        ]
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+        "label": "Package",
+        "weight": 128
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_piece",
+        "label": "Piece",
+        "weight": 28.35
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+        "label": "Kilogram",
+        "weight": 1000
+      },
+      {
+        "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch",
+        "label": "Cubic inch",
+        "weight": 17
+      }
+    ]
+  }

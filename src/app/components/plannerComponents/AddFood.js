@@ -12,6 +12,7 @@ export function AddFood({}) {
     if (query.length > 2) {
       const response = await fetch(`api/food/search?query=${query}`);
       const food = await response.json();
+      console.log(food)
       setResults(food);
     }
   };
@@ -45,7 +46,6 @@ export function AddFood({}) {
         </div>
       </div>{" "}
       <FoodResults results={results} />
-      
     </div>
   );
 }
