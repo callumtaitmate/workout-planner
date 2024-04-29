@@ -1,6 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FoodResults from "./FoodResults";
+
+export const dynamic = "force-dynamic";
 
 export function AddFood({}) {
   const [results, setResults] = useState([]);
@@ -10,9 +12,8 @@ export function AddFood({}) {
     setQuery(e);
 
     if (query.length > 2) {
-      const response = await fetch(`api/food/search?query=${query}`);
+      const response = await fetch(`/api/food/search?query=${query}`);
       const food = await response.json();
-      console.log(food)
       setResults(food);
     }
   };

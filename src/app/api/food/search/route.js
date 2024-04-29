@@ -20,12 +20,9 @@ async function fetchFood() {
 export async function GET(request) {
   const food = await fetchFood();
   const { searchParams } = new URL(request.url);
-  console.log(request.url);
   const query = searchParams.get("query");
-  console.log(query);
 
   const filteredFoods = food.hints.filter((food) => {
-    console.log(food);
     return food.food.label.toLowerCase().includes(query.toLowerCase());
   });
   return NextResponse.json(filteredFoods);

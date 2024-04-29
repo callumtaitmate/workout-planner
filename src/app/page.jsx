@@ -21,7 +21,7 @@ export default function Home() {
           view="magic_link"
           showLinks={false}
           providers={[]}
-          redirectTo="http://localhost:3000/auth/callback"
+          redirectTo="/auth/callback"
           appearance={{ theme: ThemeSupa }}
         />
       </div>
