@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FoodResults from "./FoodResults";
 
 export const dynamic = "force-dynamic";
@@ -8,14 +8,21 @@ export function AddFood({}) {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 
-  const handleChange = async (e) => {
-    setQuery(e);
-
-    if (query.length > 2) {
-      const response = await fetch(`/api/food/search?query=${query}`);
+ 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`/api/apitest?query=${query}`);
       const food = await response.json();
       setResults(food);
+    };
+
+    if (query !== '' && query.length > 2) { // You might want to include some condition to prevent unnecessary API calls
+      fetchData();
     }
+  }, [query]); // This useEffect will re-run whenever 'query' state changes
+
+  const handleChange = (e) => {
+    setQuery(e);
   };
 
   return (
@@ -26,7 +33,6 @@ export function AddFood({}) {
           className="w-full bg-gray-100 rounded-lg px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
           placeholder="Search for food"
-          value={query}
           onChange={(e) => handleChange(e.target.value)}
         />
         <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
