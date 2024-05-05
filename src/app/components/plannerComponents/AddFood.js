@@ -16,7 +16,7 @@ export function AddFood({}) {
       setResults(food);
     };
 
-    if (query !== '' && query.length > 2) { // You might want to include some condition to prevent unnecessary API calls
+    if (query !== '' && query.length > 2) {
       fetchData();
     }
   }, [query]); // This useEffect will re-run whenever 'query' state changes
