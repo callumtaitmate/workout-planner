@@ -2,13 +2,10 @@
 import React, { useState, useEffect } from "react";
 import FoodResults from "./FoodResults";
 
-export const dynamic = "force-dynamic";
-
 export function AddFood({}) {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 
- 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`/api/apitest?query=${query}`);
@@ -16,10 +13,10 @@ export function AddFood({}) {
       setResults(food);
     };
 
-    if (query !== '' && query.length > 2) {
+    if (query !== "" && query.length > 2) {
       fetchData();
     }
-  }, [query]); // This useEffect will re-run whenever 'query' state changes
+  }, [query]);
 
   const handleChange = (e) => {
     setQuery(e);

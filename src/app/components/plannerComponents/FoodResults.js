@@ -1,8 +1,6 @@
 import React from "react";
 import { useFoodStore } from "@/app/store/store";
 
-export const dynamic = "force-dynamic";
-
 export default function FoodResults({ results }) {
   const addFood = useFoodStore((state) => state.addFood);
 
