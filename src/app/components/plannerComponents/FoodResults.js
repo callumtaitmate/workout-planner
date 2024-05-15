@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFoodStore } from "@/app/store/store";
 
-export default function FoodResults({ results }) {
+export default function FoodResults({ results, setResults }) {
   const addFood = useFoodStore((state) => state.addFood);
+
+  const HandleClick = (result) => {
+    addFood(result);
+    setResults(null);
+  };
 
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto">
@@ -27,7 +32,7 @@ export default function FoodResults({ results }) {
               </div>
               <button
                 className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-1 px-2 rounded-full focus:outline-none focus:shadow-outline mr-3"
-                onClick={() => addFood(result)}
+                onClick={() => HandleClick(result)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

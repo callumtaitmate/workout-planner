@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 export const useFoodStore = create((set) => ({
   food: [],
   addFood: (result) => set((state) => ({ food: [...state.food, result] })),
@@ -8,8 +9,21 @@ export const useFoodStore = create((set) => ({
     })),
   clearFood: () => set({ food: [] }),
 }));
+
 export const useOverviewStore = create((set) => ({
   overview: [],
   addToOverview: (label, kcal, carb, fat, prot, price) =>
-    set(() => ({ label: label, kcal: kcal, carb: carb, fat: fat, prot: prot, price: price })),
+    set(() => ({
+      label: label,
+      kcal: kcal,
+      carb: carb,
+      fat: fat,
+      prot: prot,
+      price: price,
+    })),
+}));
+
+export const useDayStore = create((set) => ({
+  day: "Monday",
+  updateDay: (day) => set({ day: day }),
 }));

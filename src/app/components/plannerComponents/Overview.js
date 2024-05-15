@@ -1,5 +1,7 @@
 "use client";
+import React, { useState } from "react";
 import { useOverviewStore } from "@/app/store/store";
+import Weeks from "./overview/weeks";
 
 export function Overview() {
   const { label, kcal, carb, fat, prot, price } = useOverviewStore((state) => ({
@@ -11,20 +13,12 @@ export function Overview() {
     price: state.price,
   }));
 
+
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-2">Weekly Overview</h3>
-      <div className="display flex mb-4">
-        <button className="bg-gray-400 hover:bg-gray-500 text-white text-xs font-bold py-1 px-2 mr-1 rounded focus:outline-none focus:shadow-outline">
-          Monday
-        </button>
-        <button className="bg-gray-400 hover:bg-gray-500 text-white text-xs font-bold py-1 px-2 mr-1 rounded focus:outline-none focus:shadow-outline">
-          Tuesday
-        </button>
-        <button className="bg-gray-400 hover:bg-gray-500 text-white text-xs font-bold py-1 px-2 mr-1 rounded focus:outline-none focus:shadow-outline">
-          Wednesday
-        </button>
-      </div>
+      <Weeks />
+
       <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto mb-2">
         <div className="border-b border-gray-200 bg-gray-100 px-3 py-2 flex  justify-between">
           <h3 className="text-md font-semibold text-gray-800">{label}</h3>

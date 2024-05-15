@@ -49,7 +49,9 @@ export function AddFood({}) {
           </svg>
         </div>
       </div>{" "}
-      <FoodResults results={results} />
+      {results != null && (
+        <FoodResults results={results} setResults={setResults} />
+      )}
     </div>
   );
 }
