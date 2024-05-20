@@ -1,13 +1,14 @@
 import { create } from "zustand";
 
+//useFoodStore is an example of an array store
 export const useFoodStore = create((set) => ({
   food: [],
   addFood: (result) => set((state) => ({ food: [...state.food, result] })),
-  removeFood: (resultID) =>
-    set((state) => ({
-      food: state.food.filter((result) => result.id !== resultID),
-    })),
   clearFood: () => set({ food: [] }),
+}));
+
+export const useConfigureSotre = create((set) => ({
+  configure: {},
 }));
 
 export const useOverviewStore = create((set) => ({
