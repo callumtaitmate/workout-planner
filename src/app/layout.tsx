@@ -26,7 +26,7 @@ export default async function RootLayout({
   if (!user) {
     return (
       <html lang="en">
-        <body><Home /></body>
+        <body><Planner /></body>
       </html>
     )
   }
