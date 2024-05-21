@@ -1,27 +1,22 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import FoodResults from "./FoodResults";
-
 export function AddFood({}) {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`/api/apitest?query=${query}`);
       const food = await response.json();
       setResults(food);
     };
-
     if (query !== "" && query.length > 2) {
       fetchData();
     }
   }, [query]);
-
   const handleChange = (e) => {
     setQuery(e);
   };
-
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-4">Add Food</h3>
