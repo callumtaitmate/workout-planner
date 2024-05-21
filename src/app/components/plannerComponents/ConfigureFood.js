@@ -2,24 +2,18 @@
 import { useState } from "react";
 import {
   useConfigureSotre,
-  useFoodStore,
   useOverviewStore,
   useDayStore,
 } from "@/app/store/store";
 import { v4 as uuidv4 } from "uuid";
-import { Overview } from "./Overview";
 
 export function ConfigureFood() {
-  const { food, clearFood } = useFoodStore((state) => ({
-    food: state.food,
-    clearFood: state.clearFood,
-  }));
-  const { hello } = useConfigureSotre((state) => ({
-    hello: state.configure,
-  }));
-
   const { day } = useDayStore((state) => ({
     day: state.day,
+  }));
+
+  const { hello } = useConfigureSotre((state) => ({
+    hello: state.configure,
   }));
 
   const [quantity, setQuantity] = useState(100);
@@ -31,24 +25,26 @@ export function ConfigureFood() {
   const [label, setLabel] = useState();
   const [id, setId] = useState("");
 
-  const handleQuantity = (e) => {
-    setQuantity(e);
-  };
-
   const updateMacros = () => {
     setKcal(
       Math.trunc((hello.result.food.nutrients.ENERC_KCAL / 100) * quantity)
     );
-    setCarb(Math.trunc((hello.result.food.nutrients.CHOCDF / 100) * quantity));
     setFat(Math.trunc((hello.result.food.nutrients.FAT / 100) * quantity));
     setProt(Math.trunc((hello.result.food.nutrients.PROCNT / 100) * quantity));
     setLabel(hello.result.food.label);
     setId(uuidv4);
-    setPrice(price * 1)
+    setPrice(price * 1);
   };
 
+  
   const handlePrice = (e) => {
     setPrice(e);
+  };
+
+
+
+  const handleQuantity = (e) => {
+    setQuantity(e);
   };
 
   const postCalcObject = {
@@ -59,10 +55,12 @@ export function ConfigureFood() {
     fat: fat,
     prot: prot,
     label: label,
-    day: day,
     id: id,
-  };
+    day: day,
+  }
+  console.log(postCalcObject)
 
+  
   const updateOverview = useOverviewStore((state) => state.addToOverview);
 
   const handleClick = (postCalcObject) => {

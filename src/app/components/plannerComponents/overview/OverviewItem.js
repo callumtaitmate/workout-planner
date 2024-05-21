@@ -1,6 +1,7 @@
 import React from "react";
 import { useDayStore } from "@/app/store/store";
 import { useOverviewStore } from "@/app/store/store";
+import { DevicePhoneMobileIcon } from "@heroicons/react/24/solid";
 
 export default function OverviewItem({}) {
   const { day } = useDayStore((state) => ({
@@ -11,11 +12,12 @@ export default function OverviewItem({}) {
     overview: state.overview,
     clearItem: state.clearItem,
   }));
+  console.log(overview);
   
 
 
   return (
-    <>
+    <div>
       {overview.map((foods, id) => {
         if (day === foods.day) {
           return (
@@ -55,6 +57,6 @@ export default function OverviewItem({}) {
           );
         }
       })}
-    </>
+    </div>
   );
 }

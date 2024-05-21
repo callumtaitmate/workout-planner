@@ -5,7 +5,6 @@ export default function WeekTotal() {
   const { overview } = useOverviewStore((state) => ({
     overview: state.overview,
   }));
-  console.log(overview);
 
   let kcal = overview.reduce(
     (accumulator, current) => accumulator + current.kcal,

@@ -17,7 +17,7 @@ export function Overview() {
       <h3 className="text-xl font-semibold mb-2">Weekly Overview</h3>
       <div className="bg-white rounded-lg p-6 shadow-md">
         <Weeks />
-        <OverviewItem />
+        <OverviewItem overview={overview} />
         <DayTotal />
 
         <div className="">
