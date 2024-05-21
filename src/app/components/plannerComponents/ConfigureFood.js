@@ -12,10 +12,6 @@ export function ConfigureFood() {
     day: state.day,
   }));
 
-  const { hello } = useConfigureSotre((state) => ({
-    hello: state.configure,
-  }));
-
   const [quantity, setQuantity] = useState(100);
   const [price, setPrice] = useState(0);
   const [kcal, setKcal] = useState(0);
@@ -24,6 +20,14 @@ export function ConfigureFood() {
   const [prot, setProt] = useState(0);
   const [label, setLabel] = useState();
   const [id, setId] = useState("");
+
+  const handleQuantity = (e) => {
+    setQuantity(e);
+  };
+
+  const { hello } = useConfigureSotre((state) => ({
+    hello: state.configure,
+  }));
 
   const updateMacros = () => {
     setKcal(
@@ -36,15 +40,8 @@ export function ConfigureFood() {
     setPrice(price * 1);
   };
 
-  
   const handlePrice = (e) => {
     setPrice(e);
-  };
-
-
-
-  const handleQuantity = (e) => {
-    setQuantity(e);
   };
 
   const postCalcObject = {
@@ -57,11 +54,11 @@ export function ConfigureFood() {
     label: label,
     id: id,
     day: day,
-  }
-  console.log(postCalcObject)
+  };
+  console.log(postCalcObject);
 
-  
   const updateOverview = useOverviewStore((state) => state.addToOverview);
+  console.log(postCalcObject);
 
   const handleClick = (postCalcObject) => {
     updateOverview(postCalcObject);
@@ -102,7 +99,7 @@ export function ConfigureFood() {
                 />
                 <button
                   className="bg-green-500 hover:bg-green-600 text-white text-xs font-bold py-1 px-2 mr-2 mt-2 rounded focus:outline-none focus:shadow-outline"
-                  onClick={updateMacros}
+                  onClick={() => updateMacros()}
                 >
                   Calculate Macros
                 </button>
