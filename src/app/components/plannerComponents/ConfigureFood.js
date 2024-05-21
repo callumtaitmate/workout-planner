@@ -6,7 +6,8 @@ import {
   useOverviewStore,
   useDayStore,
 } from "@/app/store/store";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import { Overview } from "./Overview";
 
 export function ConfigureFood() {
   const { food, clearFood } = useFoodStore((state) => ({
@@ -28,13 +29,11 @@ export function ConfigureFood() {
   const [fat, setFat] = useState(0);
   const [prot, setProt] = useState(0);
   const [label, setLabel] = useState();
-  const [id, setId] = useState("")
+  const [id, setId] = useState("");
 
   const handleQuantity = (e) => {
     setQuantity(e);
   };
-
-
 
   const updateMacros = () => {
     setKcal(
@@ -45,6 +44,7 @@ export function ConfigureFood() {
     setProt(Math.trunc((hello.result.food.nutrients.PROCNT / 100) * quantity));
     setLabel(hello.result.food.label);
     setId(uuidv4);
+    setPrice(price * 1)
   };
 
   const handlePrice = (e) => {
@@ -64,15 +64,10 @@ export function ConfigureFood() {
   };
 
   const updateOverview = useOverviewStore((state) => state.addToOverview);
-  const { postCalcArray } = useOverviewStore((state) => ({
-    overview: state.overview,
-  }));
 
   const handleClick = (postCalcObject) => {
     updateOverview(postCalcObject);
   };
-  console.log(postCalcObject)
-  
 
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
@@ -127,7 +122,7 @@ export function ConfigureFood() {
                   id="price"
                   name="price"
                   value={price}
-                  onChange={(e) => handlePrice(e.target.value)}
+                  onChange={(e) => handlePrice(e.target.valueAsNumber)}
                   className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
@@ -138,7 +133,7 @@ export function ConfigureFood() {
                 >
                   + Current Day
                 </button>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
+                <button className="bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
                   + All Days
                 </button>
               </div>
