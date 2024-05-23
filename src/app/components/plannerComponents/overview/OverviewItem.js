@@ -23,8 +23,8 @@ export default function OverviewItem({}) {
             <ul key={id}>
               <div className="shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto my-2 bg-gray-100 flex  justify-between">
                 <div className="border-b border-gray-200  px-3 py-2 ">
-                  <h3 className="text-md font-semibold text-gray-800">
-                    {foods.label} - {foods.quantity}g - £{foods.price}
+                  <h3 className="text-sm font-semibold text-gray-800">
+                    {foods.label} ({foods.quantity}g) - £{foods.price}
                   </h3>
 
                   <p className="mt-1 text-xs text-gray-600">

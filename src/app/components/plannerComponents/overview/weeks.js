@@ -10,7 +10,7 @@ export default function Weeks() {
 
 
   return (
-    <div className="display inline mb-4">
+    <div className="display inline">
       <button
         onClick={() => updateDay("Monday")}
         className={

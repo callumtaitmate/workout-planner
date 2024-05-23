@@ -31,10 +31,16 @@ export default function WeekTotal() {
   
 
 return (
-  <p className="my-3 text-xs text-center text-white bg-red-500 py-1 px-2 mr-2 rounded focus:outline-none focus:shadow-outline">
-    <b>Weekly Total: {price} GBP</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat |{" "}
-    {prot}g Protein
-  </p>
+  <div className="display flex justify-between">
+    <p className="my-3 text-xs text-center text-white bg-red-500 py-1 px-2 mr-2 rounded focus:outline-none focus:shadow-outline">
+      <b>Weekly Total</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat
+      | {prot}g Protein
+    </p>
+    
+    <p className="my-3 text-xs text-center text-white bg-red-500 py-1 px-2 mr-2 rounded focus:outline-none focus:shadow-outline">
+      <b>{price} GBP</b>
+    </p>
+  </div>
 );
 
 

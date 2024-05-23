@@ -118,7 +118,7 @@ export function ConfigureFood() {
                 >
                   + Current Day
                 </button>
-                <button className="bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
+                <button className="cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
                   + All Days
                 </button>
               </div>

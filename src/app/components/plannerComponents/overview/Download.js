@@ -7,7 +7,7 @@ export default function Download() {
   }));
 
   return (
-    <button className="bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline mr-2">
+    <button className="cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline mr-2">
       Export
     </button>
   );
