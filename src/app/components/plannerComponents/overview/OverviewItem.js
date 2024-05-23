@@ -29,13 +29,13 @@ export default function OverviewItem({}) {
                   </h3>
 
                   <p className="mt-1 text-xs text-gray-600">
-                    <b>{foods.kcal} kCal</b> - {foods.kcal}g Carbs | {foods.fat}
+                    <b>{foods.kcal} kCal</b> - {foods.carb}g Carbs | {foods.fat}
                     g Fat | {foods.prot}g Protein
                   </p>
                 </div>
 
                 <button
-                  onClick={() => clearItem(foods.id)}
+                  onClick={() => clearItem(foods.id, foods.day)}
                   className="bbg-white hover:bg-gray-100 text-blue-500 font-bold py-1 px-2 rounded-full focus:outline-none focus:shadow-outline mr-3"
                 >
                   <svg

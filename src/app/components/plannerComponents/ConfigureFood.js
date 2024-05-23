@@ -33,11 +33,16 @@ export function ConfigureFood() {
     setKcal(
       Math.trunc((hello.result.food.nutrients.ENERC_KCAL / 100) * quantity)
     );
+
+    setCarb(Math.trunc((hello.result.food.nutrients.CHOCDF / 100) * quantity));
     setFat(Math.trunc((hello.result.food.nutrients.FAT / 100) * quantity));
     setProt(Math.trunc((hello.result.food.nutrients.PROCNT / 100) * quantity));
+
     setLabel(hello.result.food.label);
     setId(uuidv4);
     setPrice(price * 1);
+    
+  console.log(postCalcObject);
   };
 
   const handlePrice = (e) => {
@@ -95,7 +100,7 @@ export function ConfigureFood() {
                   name="quantity"
                   value={quantity}
                   onChange={(e) => handleQuantity(e.target.value)}
-                  className="mt-1 focus:ring-gray-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm rounded-md"
                 />
                 <button
                   className="bg-green-500 hover:bg-green-600 text-white text-xs font-bold py-1 px-2 mr-2 mt-2 rounded focus:outline-none focus:shadow-outline"
@@ -118,7 +123,7 @@ export function ConfigureFood() {
                   name="price"
                   value={price}
                   onChange={(e) => handlePrice(e.target.valueAsNumber)}
-                  className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
               <div className="flex justify-end mt-2 mb-2">

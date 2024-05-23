@@ -14,8 +14,8 @@ export const useOverviewStore = create((set) => ({
   addToOverview: (postCalcObject) =>
     set((state) => ({ overview: [...state.overview, postCalcObject] })),
 
-  clearItem: (foodId) => set((state) => ({
-    overview: state.overview.filter((foods) => foods.id !== foodId )
+  clearItem: (foodId, foodDay) => set((state) => ({
+    overview: state.overview.filter((foods) => foods.id !== foodId || foods.day !== foodDay)
     
   })
 )

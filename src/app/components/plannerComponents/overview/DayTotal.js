@@ -1,1 +1,35 @@
-export default function DayTotal() {}
+import React from "react";
+import { useOverviewStore, useDayStore } from "@/app/store/store";
+
+export default function DayTotal() {
+  const { overview } = useOverviewStore((state) => ({
+    overview: state.overview,
+  }));
+
+  const { day } = useDayStore((state) => ({
+    day: state.day,
+  }));
+
+  let kcal = overview
+    .filter((item) => item.day == day)
+    .reduce((accumulator, current) => accumulator + current.kcal, 0);
+  let carb = overview
+    .filter((item) => item.day == day)
+    .reduce((accumulator, current) => accumulator + current.carb, 0);
+  let fat = overview
+    .filter((item) => item.day == day)
+    .reduce((accumulator, current) => accumulator + current.fat, 0);
+  let prot = overview
+    .filter((item) => item.day == day)
+    .reduce((accumulator, current) => accumulator + current.prot, 0);
+  let price = overview
+    .filter((item) => item.day == day)
+    .reduce((accumulator, current) => accumulator + current.price, 0);
+
+  return (
+    <p className="my-3 text-xs text-center text-white bg-blue-500 py-1 px-2 mr-2 rounded focus:outline-none focus:shadow-outline">
+      <b>Daily Total: {price} GBP</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat |{" "}
+      {prot}g Protein
+    </p>
+  );
+}
