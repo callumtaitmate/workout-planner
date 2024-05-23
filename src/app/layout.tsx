@@ -6,8 +6,8 @@ import Home from "./page";
 import Planner from "./planner/page";
 
 export const metadata: Metadata = {
-  title: "Meal Budget Planner",
-  description: "Meal Budget Planner",
+  title: "mealbudget.pro",
+  description: "mealbudget.pro",
 };
 
 export default async function RootLayout({

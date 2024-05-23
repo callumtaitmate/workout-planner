@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import FoodResults from "./addfood/FoodResults";
 export function AddFood({}) {
-
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -17,16 +16,19 @@ export function AddFood({}) {
     }
   }, [query]);
 
-  
   const handleChange = (e) => {
     setQuery(e);
   };
+
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-4">Add Food</h3>
-      <div className="relative mb-4">
+      <p className="text-xs text-red-400 font-semibold mb-1">
+        (Search Functionality In Infancy)
+      </p>
+      <div className="relative mb-4 rounded-md">
         <input
-          className="w-full bg-gray-100 rounded-lg px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block sm:text-sm rounded-md border-b border-gray-300"
           type="text"
           placeholder="Search for food"
           onChange={(e) => handleChange(e.target.value)}
@@ -38,7 +40,7 @@ export function AddFood({}) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 text-gray-400"
+            className="w-4 h-4 text-gray-400"
           >
             <path
               strokeLinecap="round"

@@ -10,7 +10,7 @@ import Download from "./overview/Download";
 export function Overview() {
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
-      <h3 className="text-xl font-semibold mb-2">Weekly Overview</h3>
+      <h3 className="text-xl font-semibold mb-4">Weekly Overview</h3>
       <div className="bg-gray-100 rounded-lg px-3 py-2 shadow-md">
         <h5 className="text-xs font-semibold text-gray-700 mb-2">Select Day:</h5>
         <Weeks />

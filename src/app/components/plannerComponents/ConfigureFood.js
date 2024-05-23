@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   useConfigureSotre,
   useOverviewStore,
@@ -12,6 +12,11 @@ export function ConfigureFood() {
   const { day } = useDayStore((state) => ({
     day: state.day,
   }));
+  
+  const { hello } = useConfigureSotre((state) => ({
+    hello: state.configure,
+  }));
+
 
   const [quantity, setQuantity] = useState(100);
   const [price, setPrice] = useState(0);
@@ -22,13 +27,11 @@ export function ConfigureFood() {
   const [label, setLabel] = useState();
   const [id, setId] = useState("");
 
+  
+
   const handleQuantity = (e) => {
     setQuantity(e);
   };
-
-  const { hello } = useConfigureSotre((state) => ({
-    hello: state.configure,
-  }));
 
   const updateMacros = () => {
     setKcal(
@@ -107,6 +110,7 @@ export function ConfigureFood() {
                   id="price"
                   name="price"
                   value={price}
+                  required
                   onChange={(e) => handlePrice(e.target.valueAsNumber)}
                   className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
