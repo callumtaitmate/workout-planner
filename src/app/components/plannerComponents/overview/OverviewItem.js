@@ -12,7 +12,6 @@ export default function OverviewItem({}) {
     overview: state.overview,
     clearItem: state.clearItem,
   }));
-  console.log(overview);
   
 
 

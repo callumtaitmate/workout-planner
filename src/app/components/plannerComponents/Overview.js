@@ -8,21 +8,16 @@ import WeekTotal from "./overview/WeekTotal";
 import Download from "./overview/Download";
 
 export function Overview() {
-  const { overview } = useOverviewStore((state) => ({
-    overview: state.overview,
-  }));
-
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-2">Weekly Overview</h3>
       <div className="bg-white rounded-lg p-6 shadow-md">
         <Weeks />
-        <OverviewItem overview={overview} />
+        <OverviewItem />
         <DayTotal />
 
-        <div className="">
+        <div>
           <WeekTotal />
-
           <div className="flex justify-end">
             <Download />
             <button className="bg-green-300 hover:bg-green-300 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">

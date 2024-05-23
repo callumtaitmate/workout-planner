@@ -1,9 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import FoodResults from "./FoodResults";
+import FoodResults from "./addfood/FoodResults";
 export function AddFood({}) {
+
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`/api/apitest?query=${query}`);
@@ -14,6 +16,8 @@ export function AddFood({}) {
       fetchData();
     }
   }, [query]);
+
+  
   const handleChange = (e) => {
     setQuery(e);
   };

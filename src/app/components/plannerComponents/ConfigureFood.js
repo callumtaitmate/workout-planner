@@ -6,6 +6,7 @@ import {
   useDayStore,
 } from "@/app/store/store";
 import { v4 as uuidv4 } from "uuid";
+import ItemInfo from "./configurefood/ItemInfo";
 
 export function ConfigureFood() {
   const { day } = useDayStore((state) => ({
@@ -39,10 +40,7 @@ export function ConfigureFood() {
     setProt(Math.trunc((hello.result.food.nutrients.PROCNT / 100) * quantity));
 
     setLabel(hello.result.food.label);
-    setId(uuidv4);
     setPrice(price * 1);
-    
-  console.log(postCalcObject);
   };
 
   const handlePrice = (e) => {
@@ -60,12 +58,11 @@ export function ConfigureFood() {
     id: id,
     day: day,
   };
-  console.log(postCalcObject);
 
   const updateOverview = useOverviewStore((state) => state.addToOverview);
-  console.log(postCalcObject);
 
   const handleClick = (postCalcObject) => {
+    setId(uuidv4);
     updateOverview(postCalcObject);
   };
 
@@ -76,21 +73,9 @@ export function ConfigureFood() {
         <ul>
           <li className="border-b border-gray-200 bg-gray-100">
             <div>
-              <div className="flex items-center justify-between">
-                <div className="px-3 py-2 ">
-                  <h3 className="text-md font-semibold text-gray-800">
-                    {hello.result.food.label} - 100g{" "}
-                  </h3>
-                  <p className="mt-1 text-xs text-gray-600">
-                    <b>{hello.result.food.nutrients.ENERC_KCAL}kCal</b> -{" "}
-                    {hello.result.food.nutrients.CHOCDF}g Carbs |{" "}
-                    {hello.result.food.nutrients.FAT}g Fat |{" "}
-                    {hello.result.food.nutrients.PROCNT}g Protein
-                  </p>
-                </div>
-              </div>
-              <div className="px-3 py-2 mt-2">
-                <h3 className="text-xs font-semibold text-blue-500">
+              <ItemInfo hello={hello} />
+              <div className="px-3 py-2 mt-1">
+                <h3 className="text-xs font-semibold text-gray-500">
                   Adjust Weight <span>(Grams)</span>
                 </h3>
 
@@ -114,7 +99,7 @@ export function ConfigureFood() {
                 </p>
               </div>
               <div className="px-3 py-2">
-                <h3 className="text-xs font-semibold text-blue-500">
+                <h3 className="text-xs font-semibold text-gray-500">
                   Price <span>(GBP)</span>
                 </h3>
                 <input

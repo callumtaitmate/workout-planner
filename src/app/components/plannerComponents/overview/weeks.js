@@ -8,6 +8,7 @@ export default function Weeks() {
 
   const updateDay = useDayStore((state) => state.updateDay);
 
+
   return (
     <div className="display inline mb-4">
       <button
