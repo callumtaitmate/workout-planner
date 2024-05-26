@@ -10,7 +10,7 @@ export default function FoodResults({ results, setResults }) {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto">
+    <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto mt-1">
       <ul>
         {results.map((result, id) => {
           const ENERC_KCAL = parseInt(result.food.nutrients.ENERC_KCAL);

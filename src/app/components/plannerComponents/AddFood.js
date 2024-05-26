@@ -22,10 +22,10 @@ export function AddFood({}) {
 
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
-      <h3 className="text-xl font-semibold mb-4">Add Food</h3>
-      <div className="bg-gray-100 p-2 rounded-lg mb-2">
-        <p className="text-xs text-red-400 font-semibold mb-2">
-          (Search Functionality In Infancy)
+      <h3 className="text-xl font-semibold mb-3">Add Food</h3>
+      <div className="bg-gray-100 p-2 rounded-lg shadow-sm">
+        <p className="text-xs text-red-400 font-semibold my-1">
+          (Basic Search Functionality)
         </p>
         <div className="relative mb-4 rounded-m">
           <input

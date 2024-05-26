@@ -12,11 +12,10 @@ export function ConfigureFood() {
   const { day } = useDayStore((state) => ({
     day: state.day,
   }));
-  
+
   const { hello } = useConfigureSotre((state) => ({
     hello: state.configure,
   }));
-
 
   const [quantity, setQuantity] = useState(100);
   const [price, setPrice] = useState(0);
@@ -27,8 +26,8 @@ export function ConfigureFood() {
   const [label, setLabel] = useState();
   const [id, setId] = useState("");
 
-  
 
+ 
   const handleQuantity = (e) => {
     setQuantity(e);
   };
@@ -49,6 +48,8 @@ export function ConfigureFood() {
   const handlePrice = (e) => {
     setPrice(e);
   };
+
+
 
   const postCalcObject = {
     quantity: quantity,
@@ -71,7 +72,7 @@ export function ConfigureFood() {
 
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
-      <h3 className="text-xl font-semibold mb-4">Configure Food</h3>
+      <h3 className="text-xl font-semibold mb-3">Configure Food</h3>
       <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto">
         <ul>
           <li className="border-b border-gray-200 bg-gray-100">

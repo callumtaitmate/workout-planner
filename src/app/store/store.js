@@ -5,21 +5,21 @@ export const useFoodStore = create((set) => ({
   food: [],
   addFood: (result) => set((state) => ({ food: [...state.food, result] })),
   clearFood: () => set({ food: [] }),
-  
 }));
 
 export const useOverviewStore = create((set) => ({
-  
   overview: [],
   addToOverview: (postCalcObject) =>
     set((state) => ({ overview: [...state.overview, postCalcObject] })),
 
-  clearItem: (foodId, foodDay) => set((state) => ({
-    overview: state.overview.filter((foods) => foods.id !== foodId || foods.day !== foodDay)
-    
-  })
-)
-  
+  clearItem: (foodId, foodDay) =>
+    set((state) => ({
+      overview: state.overview.filter(
+        (foods) => foods.id !== foodId || foods.day !== foodDay
+      ),
+    })),
+
+  clearAll: () => set({ overview: [] }),
 }));
 
 export const useConfigureSotre = create((set) => ({
@@ -29,7 +29,7 @@ export const useConfigureSotre = create((set) => ({
       quantity: 100,
       day: "Monday",
       food: {
-        label: "Search for a food to start",
+        label: "Add food to start",
         nutrients: {
           ENERC_KCAL: 0,
           CHOCDF: 0,
