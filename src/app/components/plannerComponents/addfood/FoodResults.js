@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useConfigureSotre } from "@/app/store/store";
 
 export default function FoodResults({ results, setResults }) {
@@ -13,6 +13,10 @@ export default function FoodResults({ results, setResults }) {
     <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto">
       <ul>
         {results.map((result, id) => {
+          const ENERC_KCAL = parseInt(result.food.nutrients.ENERC_KCAL);
+          const CHOCDF = parseInt(result.food.nutrients.CHOCDF);
+          const FAT = parseInt(result.food.nutrients.FAT);
+          const PROCNT = parseInt(result.food.nutrients.PROCNT);
           return (
             <li
               key={id}
@@ -24,10 +28,8 @@ export default function FoodResults({ results, setResults }) {
                 </h3>
 
                 <p className="mt-1 text-xs text-gray-600">
-                  <b>{result.food.nutrients.ENERC_KCAL} kCal</b> -{" "}
-                  {result.food.nutrients.CHOCDF}g Carbs,{" "}
-                  {result.food.nutrients.FAT}g Fat,{" "}
-                  {result.food.nutrients.PROCNT}g Protein
+                  <b>{ENERC_KCAL} kCal</b> - {CHOCDF}g Carbs, {FAT}g Fat,{" "}
+                  {PROCNT}g Protein
                 </p>
               </div>
               <button
