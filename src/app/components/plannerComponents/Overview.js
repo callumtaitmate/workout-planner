@@ -12,9 +12,6 @@ export function Overview() {
     clearAll: state.clearAll,
   }));
 
-  
-  
-
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-3">Weekly Overview</h3>
@@ -26,16 +23,17 @@ export function Overview() {
 
         <div>
           <WeekTotal />
-          <div className="mt-2 flex justify-between">
+
+          <div className="">
             <button
               onClick={() => clearAll()}
-              className="bg-red-500 hover:bg-red-600 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="w-full text-center bg-red-500 hover:bg-red-600 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Clear All
             </button>
-            <div className="flex justify-end ">
+            <div className="mt-5">
               <Download />
-              <button className="cursor-not-allowed bg-green-300 hover:bg-green-300 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="mt-1 w-full text-center cursor-not-allowed bg-green-300 hover:bg-green-300 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">
                 Sign up to save
               </button>
             </div>

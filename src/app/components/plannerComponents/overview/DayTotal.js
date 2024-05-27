@@ -27,12 +27,12 @@ export default function DayTotal() {
     .reduce((accumulator, current) => accumulator + current.price, 0);
 
   return (
-    <div className="display flex justify-between">
-      <p className="my-3 text-xs text-center text-white bg-blue-500 py-1 px-2 mr-2 rounded focus:outline-none focus:shadow-outline">
+    <div className="display flex justify-evenly">
+      <p className="my-3 text-xs text-center text-white bg-blue-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
         <b>Day Total</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat | {prot}g Protein
       </p>
 
-      <p className="my-3 text-xs text-center text-white bg-blue-500 py-1 px-2 mr-2 rounded focus:outline-none focus:shadow-outline">
+      <p className="my-3 text-xs text-center text-white bg-blue-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
         <b>{price} GBP</b>
       </p>
     </div>
