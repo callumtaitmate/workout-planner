@@ -112,11 +112,14 @@ export default function AddAllDays({ postCalcObject, hello }) {
     updateOverview(saturday);
     updateOverview(sunday);
   };
+
   return (
     <div>
       <button
-        className={ hello.result.food.label == "Add food to start" ?  "cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline" :
-          "bg-blue-500 hover:bg-blue-500 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+        className={
+          hello.result.food.label == "Add food to start"
+            ? "cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+            : "bg-blue-500 hover:bg-blue-500 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
         }
         onClick={() =>
           handleAdd(
@@ -129,6 +132,9 @@ export default function AddAllDays({ postCalcObject, hello }) {
             sunday
           )
         }
+
+        disabled={
+          hello.result.food.label == "Add food to start"}
       >
         + Add All Days
       </button>

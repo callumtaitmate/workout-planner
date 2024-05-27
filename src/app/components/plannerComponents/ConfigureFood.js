@@ -116,6 +116,9 @@ export function ConfigureFood() {
               </div>
               <div className="flex justify-end mt-2 mb-2">
                 <button
+                
+        disabled={
+          hello.result.food.label == "Add food to start"}
                   onClick={() => handleClick(postCalcObject)}
                   className={
                     hello.result.food.label == "Add food to start"
