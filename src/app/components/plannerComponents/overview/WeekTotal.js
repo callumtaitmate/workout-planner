@@ -26,6 +26,7 @@ export default function WeekTotal() {
     (accumulator, current) => accumulator + current.price,
     0
   );
+  const priceParsed = parseFloat(price).toFixed(2);
 
   return (
     <div className=" display flex justify-between">
@@ -35,7 +36,7 @@ export default function WeekTotal() {
       </p>
 
       <p className="my-3 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
-        <b>{price} GBP</b>
+        <b>{priceParsed} GBP</b>
       </p>
     </div>
   );
