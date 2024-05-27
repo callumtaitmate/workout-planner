@@ -17,7 +17,7 @@ export default function ItemInfo({ hello, quantity }) {
         <h3
           className={
             hello.result.food.label === "Add food to start"
-              ? "text-md font-semibold text-blue-500"
+              ? "text-md font-semibold text-blue-400"
               : "text-md font-semibold text-gray-800"
           }
         >
