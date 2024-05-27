@@ -117,12 +117,16 @@ export function ConfigureFood() {
               <div className="flex justify-end mt-2 mb-2">
                 <button
                   onClick={() => handleClick(postCalcObject)}
-                  className="bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+                  className={
+                    hello.result.food.label == "Add food to start"
+                      ? " cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+                      : " bg-blue-500 hover:bg-blue-500 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+                  }
                 >
                   + Current Day
                 </button>
                 <div className="">
-                  <AddAllDays postCalcObject={postCalcObject} />
+                  <AddAllDays postCalcObject={postCalcObject} hello={hello} />
                 </div>
               </div>
             </div>

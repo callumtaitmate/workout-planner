@@ -12,7 +12,6 @@ export default function OverviewItem({}) {
     clearItem: state.clearItem,
   }));
 
-  console.log(overview);
   return (
     <div>
       {overview.map((foods, id) => {

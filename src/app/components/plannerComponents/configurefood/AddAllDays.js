@@ -1,7 +1,7 @@
 import React from "react";
 import { useOverviewStore } from "@/app/store/store";
 
-export default function AddAllDays({ postCalcObject }) {
+export default function AddAllDays({ postCalcObject, hello }) {
   const updateOverview = useOverviewStore((state) => state.addToOverview);
 
   const twat = {
@@ -115,7 +115,9 @@ export default function AddAllDays({ postCalcObject }) {
   return (
     <div>
       <button
-        className=" bg-blue-500 hover:bg-blue-500 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+        className={ hello.result.food.label == "Add food to start" ?  "cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline" :
+          "bg-blue-500 hover:bg-blue-500 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
+        }
         onClick={() =>
           handleAdd(
             monday,
