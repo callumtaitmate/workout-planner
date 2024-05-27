@@ -12,6 +12,9 @@ export function Overview() {
     clearAll: state.clearAll,
   }));
 
+  
+  
+
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-3">Weekly Overview</h3>

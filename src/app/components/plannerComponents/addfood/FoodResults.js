@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useConfigureSotre } from "@/app/store/store";
 
 export default function FoodResults({ results, setResults }) {
@@ -10,7 +10,7 @@ export default function FoodResults({ results, setResults }) {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto mt-1">
+    <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-gray-400 scrollbar-track-slate-300 overflow-y-scroll bg-white shadow-md rounded-lg overflow-hidden max-h-80  mt-1 ">
       <ul>
         {results.map((result, id) => {
           const ENERC_KCAL = parseInt(result.food.nutrients.ENERC_KCAL);

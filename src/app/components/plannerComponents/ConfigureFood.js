@@ -7,6 +7,7 @@ import {
 } from "@/app/store/store";
 import { v4 as uuidv4 } from "uuid";
 import ItemInfo from "./configurefood/ItemInfo";
+import AddAllDays from "./configurefood/AddAllDays";
 
 export function ConfigureFood() {
   const { day } = useDayStore((state) => ({
@@ -26,8 +27,6 @@ export function ConfigureFood() {
   const [label, setLabel] = useState();
   const [id, setId] = useState("");
 
-
- 
   const handleQuantity = (e) => {
     setQuantity(e);
   };
@@ -48,8 +47,6 @@ export function ConfigureFood() {
   const handlePrice = (e) => {
     setPrice(e);
   };
-
-
 
   const postCalcObject = {
     quantity: quantity,
@@ -73,11 +70,11 @@ export function ConfigureFood() {
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-3">Configure Food</h3>
-      <div className="bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto">
+      <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-gray-400 scrollbar-track-slate-300 bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto">
         <ul>
           <li className="border-b border-gray-200 bg-gray-100">
             <div>
-              <ItemInfo hello={hello} />
+              <ItemInfo hello={hello} quantity={postCalcObject.quantity} />
               <div className="px-3 py-2 mt-1">
                 <h3 className="text-xs font-semibold text-gray-500">
                   Adjust Weight <span>(Grams)</span>
@@ -88,7 +85,8 @@ export function ConfigureFood() {
                   id="quantity"
                   name="quantity"
                   value={quantity}
-                  onChange={(e) => handleQuantity(e.target.value)}
+                  required
+                  onChange={(e) => handleQuantity(e.target.valueAsNumber)}
                   className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm rounded-md"
                 />
                 <button
@@ -123,9 +121,9 @@ export function ConfigureFood() {
                 >
                   + Current Day
                 </button>
-                <button className="cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
-                  + All Days
-                </button>
+                <div className="">
+                  <AddAllDays postCalcObject={postCalcObject} />
+                </div>
               </div>
             </div>
           </li>
