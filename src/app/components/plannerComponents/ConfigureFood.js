@@ -8,6 +8,7 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import ItemInfo from "./configurefood/ItemInfo";
 import AddAllDays from "./configurefood/AddAllDays";
+import AddCurrentDay from "./configurefood/AddCurrentDay";
 
 export function ConfigureFood() {
   const { day } = useDayStore((state) => ({
@@ -60,13 +61,6 @@ export function ConfigureFood() {
     day: day,
   };
 
-  const updateOverview = useOverviewStore((state) => state.addToOverview);
-
-  const handleClick = (postCalcObject) => {
-    setId(uuidv4);
-    updateOverview(postCalcObject);
-  };
-
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-3">Configure Food</h3>
@@ -115,19 +109,7 @@ export function ConfigureFood() {
                 />
               </div>
               <div className="flex justify-end mt-2 mb-2">
-                <button
-                
-        disabled={
-          hello.result.food.label == "Add food to start"}
-                  onClick={() => handleClick(postCalcObject)}
-                  className={
-                    hello.result.food.label == "Add food to start"
-                      ? " cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
-                      : " bg-blue-500 hover:bg-blue-500 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
-                  }
-                >
-                  + Current Day
-                </button>
+                <AddCurrentDay postCalcObject={postCalcObject} hello={hello} />
                 <div className="">
                   <AddAllDays postCalcObject={postCalcObject} hello={hello} />
                 </div>

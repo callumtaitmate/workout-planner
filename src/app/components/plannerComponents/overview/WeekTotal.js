@@ -1,12 +1,10 @@
 import React from "react";
-import { useOverviewStore} from "@/app/store/store";
+import { useOverviewStore } from "@/app/store/store";
 
 export default function WeekTotal() {
   const { overview } = useOverviewStore((state) => ({
     overview: state.overview,
   }));
-  
-
 
   let kcal = overview.reduce(
     (accumulator, current) => accumulator + current.kcal,
@@ -28,20 +26,17 @@ export default function WeekTotal() {
     (accumulator, current) => accumulator + current.price,
     0
   );
-  
 
-return (
-  <div className="display flex justify-evenly">
-    <p className="my-3 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
-      <b>Week Total</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat
-      | {prot}g Protein
-    </p>
-    
-    <p className="my-3 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
-      <b>{price} GBP</b>
-    </p>
-  </div>
-);
+  return (
+    <div className=" display flex justify-between">
+      <p className="my-3 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+        <b>Week Total</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat | {prot}g
+        Protein
+      </p>
 
-
+      <p className="my-3 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
+        <b>{price} GBP</b>
+      </p>
+    </div>
+  );
 }
