@@ -33,6 +33,7 @@ export function ConfigureFood() {
   };
 
   const updateMacros = () => {
+    
     setKcal(
       Math.trunc((hello.result.food.nutrients.ENERC_KCAL / 100) * quantity)
     );
