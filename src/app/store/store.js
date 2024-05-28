@@ -1,12 +1,5 @@
 import { create } from "zustand";
 
-//useFoodStore is an example of an array store
-export const useFoodStore = create((set) => ({
-  food: [],
-  addFood: (result) => set((state) => ({ food: [...state.food, result] })),
-  clearFood: () => set({ food: [] }),
-}));
-
 export const useOverviewStore = create((set) => ({
   overview: [],
   addToOverview: (postCalcObject) =>

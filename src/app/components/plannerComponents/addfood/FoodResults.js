@@ -1,5 +1,6 @@
 import React from "react";
 import { useConfigureSotre } from "@/app/store/store";
+import ConfigureFood from "../ConfigureFood";
 
 export default function FoodResults({ results, setResults }) {
   const addConfiguration = useConfigureSotre((state) => state.addConfiguration);
@@ -56,3 +57,4 @@ export default function FoodResults({ results, setResults }) {
     </div>
   );
 }
+

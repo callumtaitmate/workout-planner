@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import FoodResults from "./addfood/FoodResults";
 export function AddFood({}) {
+  
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 

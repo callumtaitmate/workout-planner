@@ -19,6 +19,10 @@ export function ConfigureFood() {
     hello: state.configure,
   }));
 
+  useEffect(() => {
+    updateMacros();
+  }, [hello]);
+
   const [quantity, setQuantity] = useState(100);
   const [price, setPrice] = useState(0);
   const [kcal, setKcal] = useState(0);
@@ -33,7 +37,6 @@ export function ConfigureFood() {
   };
 
   const updateMacros = () => {
-    
     setKcal(
       Math.trunc((hello.result.food.nutrients.ENERC_KCAL / 100) * quantity)
     );
@@ -44,6 +47,7 @@ export function ConfigureFood() {
 
     setLabel(hello.result.food.label);
     setPrice(price * 1);
+    setId(uuidv4);
   };
 
   const handlePrice = (e) => {
@@ -88,7 +92,7 @@ export function ConfigureFood() {
                   className="bg-green-500 hover:bg-green-600 text-white text-xs font-bold py-1 px-2 mr-2 mt-2 rounded focus:outline-none focus:shadow-outline"
                   onClick={() => updateMacros()}
                 >
-                  Calculate Macros
+                  Recalculate Macros
                 </button>
                 <p className="mt-3 text-xs text-center text-white bg-gray-500 py-1 px-2 mr-2 rounded focus:outline-none focus:shadow-outline">
                   <b>{kcal}kCal</b> - {carb}g Carbs | {fat}g Fat | {prot}g
@@ -122,3 +126,5 @@ export function ConfigureFood() {
     </div>
   );
 }
+
+export function UpdateMacros() {}
