@@ -1,109 +1,102 @@
 import React from "react";
 import { useOverviewStore } from "@/app/store/store";
 
-export default function AddAllDays({ postCalcObject, hello }) {
+export default function AddAllDays({ hello, reps, sets, weight, id }) {
   const updateOverview = useOverviewStore((state) => state.addToOverview);
 
-  const twat = {
-    quantity: postCalcObject.quantity,
-    price: postCalcObject.price,
-    kcal: postCalcObject.kcal,
-    carb: postCalcObject.carb,
-    fat: postCalcObject.fat,
-    prot: postCalcObject.prot,
-    label: postCalcObject.label,
-    id: postCalcObject.id,
-    day: postCalcObject.day,
-  };
-
   const monday = {
-    quantity: twat.quantity,
-    price: twat.price,
-    kcal: twat.kcal,
-    carb: twat.carb,
-    fat: twat.fat,
-    prot: twat.prot,
-    label: twat.label,
-    id: twat.id,
-    day: "Monday",
+    configure: {
+      result: {
+        reps: reps,
+        sets: sets,
+        weight: weight,
+        day: "Monday",
+        name: hello.result.name,
+        id: id
+      },
+    },
   };
 
   const tuesday = {
-    quantity: twat.quantity,
-    price: twat.price,
-    kcal: twat.kcal,
-    carb: twat.carb,
-    fat: twat.fat,
-    prot: twat.prot,
-    label: twat.label,
-    id: twat.id,
-    day: "Tuesday",
+    configure: {
+      result: {
+        reps: reps,
+        sets: sets,
+        weight: weight,
+        day: "Tuesday",
+        name: hello.result.name,
+        id: id
+      },
+    },
   };
+  
   const wednesday = {
-    quantity: twat.quantity,
-    price: twat.price,
-    kcal: twat.kcal,
-    carb: twat.carb,
-    fat: twat.fat,
-    prot: twat.prot,
-    label: twat.label,
-    id: twat.id,
-    day: "Wednesday",
+    configure: {
+      result: {
+        reps: reps,
+        sets: sets,
+        weight: weight,
+        day: "Wednesday",
+        name: hello.result.name,
+        id: id
+      },
+    },
   };
+  
   const thursday = {
-    quantity: twat.quantity,
-    price: twat.price,
-    kcal: twat.kcal,
-    carb: twat.carb,
-    fat: twat.fat,
-    prot: twat.prot,
-    label: twat.label,
-    id: twat.id,
-    day: "Thursday",
+    configure: {
+      result: {
+        reps: reps,
+        sets: sets,
+        weight: weight,
+        day: "Thursday",
+        name: hello.result.name,
+        id: id
+      },
+    },
   };
+  
   const friday = {
-    quantity: twat.quantity,
-    price: twat.price,
-    kcal: twat.kcal,
-    carb: twat.carb,
-    fat: twat.fat,
-    prot: twat.prot,
-    label: twat.label,
-    id: twat.id,
-    day: "Friday",
+    configure: {
+      result: {
+        reps: reps,
+        sets: sets,
+        weight: weight,
+        day: "Friday",
+        name: hello.result.name,
+        id: id
+      },
+    },
   };
+  
   const saturday = {
-    quantity: twat.quantity,
-    price: twat.price,
-    kcal: twat.kcal,
-    carb: twat.carb,
-    fat: twat.fat,
-    prot: twat.prot,
-    label: twat.label,
-    id: twat.id,
-    day: "Saturday",
+    configure: {
+      result: {
+        reps: reps,
+        sets: sets,
+        weight: weight,
+        day: "Saturday",
+        name: hello.result.name,
+        id: id
+      },
+    },
   };
+  
   const sunday = {
-    quantity: twat.quantity,
-    price: twat.price,
-    kcal: twat.kcal,
-    carb: twat.carb,
-    fat: twat.fat,
-    prot: twat.prot,
-    label: twat.label,
-    id: twat.id,
-    day: "Sunday",
+    configure: {
+      result: {
+        reps: reps,
+        sets: sets,
+        weight: weight,
+        day: "Sunday",
+        name: hello.result.name,
+        id: id
+      },
+    },
   };
 
-  const handleAdd = (
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday,
-    saturday,
-    sunday
-  ) => {
+
+  const handleAdd = () => {
     updateOverview(monday);
     updateOverview(tuesday);
     updateOverview(wednesday);
@@ -116,25 +109,14 @@ export default function AddAllDays({ postCalcObject, hello }) {
   return (
     <div>
       <button
+      
+      disabled={hello.result.name == "Add Exercise to Start"}
         className={
-          hello.result.food.label == "Add food to start"
+          hello.result.name == "Add Exercise to Start"
             ? "cursor-not-allowed bg-blue-300 hover:bg-blue-300 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
             : "bg-blue-500 hover:bg-blue-500 text-white text-xs font-bold py-1 px-4 mr-2 rounded focus:outline-none focus:shadow-outline"
         }
-        onClick={() =>
-          handleAdd(
-            monday,
-            tuesday,
-            wednesday,
-            thursday,
-            friday,
-            saturday,
-            sunday
-          )
-        }
-
-        disabled={
-          hello.result.food.label == "Add food to start"}
+        onClick={() => handleAdd(monday, tuesday, wednesday, thursday, friday, saturday, sunday)}
       >
         + Add All Days
       </button>

@@ -3,9 +3,9 @@ import React from "react";
 import { useOverviewStore } from "@/app/store/store";
 import Weeks from "./overview/weeks";
 import OverviewItem from "./overview/OverviewItem";
-import DayTotal from "./overview/DayTotal";
-import WeekTotal from "./overview/WeekTotal";
 import Download from "./overview/Download";
+import DayTotal from "./overview/DayTotal"
+import WeekTotal from "./overview/WeekTotal"
 
 export function Overview() {
   const { clearAll } = useOverviewStore((state) => ({
@@ -18,8 +18,8 @@ export function Overview() {
       <Weeks />
       <OverviewItem />
       <div className="bg-gray-100 rounded-lg px-3 py-2 shadow-md mt-2">
-        <DayTotal />
         <div>
+          <DayTotal />
           <WeekTotal />
           <div className="">
             <button

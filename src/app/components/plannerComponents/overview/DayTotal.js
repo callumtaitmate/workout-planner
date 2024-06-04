@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useOverviewStore, useDayStore } from "@/app/store/store";
+import { useSearchParams } from "next/navigation";
 
 export default function DayTotal() {
   const { overview } = useOverviewStore((state) => ({
@@ -10,34 +11,62 @@ export default function DayTotal() {
     day: state.day,
   }));
 
-  let kcal = overview
-    .filter((item) => item.day == day)
-    .reduce((accumulator, current) => accumulator + current.kcal, 0);
-  let carb = overview
-    .filter((item) => item.day == day)
-    .reduce((accumulator, current) => accumulator + current.carb, 0);
-  let fat = overview
-    .filter((item) => item.day == day)
-    .reduce((accumulator, current) => accumulator + current.fat, 0);
-  let prot = overview
-    .filter((item) => item.day == day)
-    .reduce((accumulator, current) => accumulator + current.prot, 0);
-  let price = overview
-    .filter((item) => item.day == day)
-    .reduce((accumulator, current) => accumulator + current.price, 0);
+  let sets = overview
+    .filter((item) => item.configure.result.day == day)
+    .reduce(
+      (accumulator, current) => accumulator + current.configure.result.sets,
+      0
+    );
+  let totalRepsCalc = overview
+    .filter((item) => item.configure.result.day == day)
+    .map((p) => p.configure.result.reps * p.configure.result.sets);
 
-  const priceParsed = parseFloat(price).toFixed(2);
+  let totalReps = totalRepsCalc.reduce(
+    (accumulator, current) => accumulator + current,
+    0
+  );
+
+  let perSetWeight = overview
+    .filter((item) => item.configure.result.day == day)
+    .map(
+      (p) =>
+        p.configure.result.reps *
+        p.configure.result.sets *
+        p.configure.result.weight
+    );
+
+  let totalWeight = perSetWeight.reduce(
+    (accumulator, current) => accumulator + current,
+    0
+  );
 
   return (
-    <div className="display flex justify-between">
-      <p className="my-3 text-xs text-center text-white bg-blue-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
-        <b>Day Total</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat | {prot}g
-        Protein
-      </p>
+    <div>
+      <div className="display flex justify-between">
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+          <b>Daily Reps</b>
+        </p>
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
+          <b>{totalReps} Reps</b>
+        </p>
+      </div>
 
-      <p className="my-3 text-xs text-center text-white bg-blue-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
-        <b>{priceParsed} GBP</b>
-      </p>
+      <div className="display flex justify-between">
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+          <b>Daily Sets</b>
+        </p>
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
+          <b>{sets} Sets</b>
+        </p>
+      </div>
+      <div className="display flex justify-between">
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+          <b>Daily Weight</b>
+        </p>
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
+          <b>{totalWeight} Kgs</b>
+        </p>
+      </div>
     </div>
   );
 }

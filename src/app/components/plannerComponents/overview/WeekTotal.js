@@ -6,38 +6,59 @@ export default function WeekTotal() {
     overview: state.overview,
   }));
 
-  let kcal = overview.reduce(
-    (accumulator, current) => accumulator + current.kcal,
+  let sets = overview.reduce(
+    (accumulator, current) => accumulator + current.configure.result.sets,
     0
   );
-  let carb = overview.reduce(
-    (accumulator, current) => accumulator + current.carb,
+
+  let totalRepsCalc = overview.map(
+    (p) => p.configure.result.reps * p.configure.result.sets
+  );
+
+  let totalReps = totalRepsCalc.reduce(
+    (accumulator, current) => accumulator + current,
     0
   );
-  let fat = overview.reduce(
-    (accumulator, current) => accumulator + current.fat,
+
+  let perSetWeight = overview.map(
+    (p) =>
+      p.configure.result.reps *
+      p.configure.result.sets *
+      p.configure.result.weight
+  );
+
+  let totalWeight = perSetWeight.reduce(
+    (accumulator, current) => accumulator + current,
     0
   );
-  let prot = overview.reduce(
-    (accumulator, current) => accumulator + current.prot,
-    0
-  );
-  let price = overview.reduce(
-    (accumulator, current) => accumulator + current.price,
-    0
-  );
-  const priceParsed = parseFloat(price).toFixed(2);
 
   return (
-    <div className=" display flex justify-between">
-      <p className="my-3 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
-        <b>Week Total</b> {kcal} Kcal - {carb}g Carbs | {fat}g Fat | {prot}g
-        Protein
-      </p>
+    <div>
+      <div className="display flex justify-between">
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+          <b>Weekly Reps</b>
+        </p>
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
+          <b>{totalReps} Reps</b>
+        </p>
+      </div>
 
-      <p className="my-3 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
-        <b>{priceParsed} GBP</b>
-      </p>
+      <div className="display flex justify-between">
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+          <b>Weekly Sets</b>
+        </p>
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
+          <b>{sets} Sets</b>
+        </p>
+      </div>
+      <div className="display flex justify-between">
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+          <b>Weekly Weight</b>
+        </p>
+        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
+          <b>{totalWeight} Kgs</b>
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import { useConfigureSotre } from "@/app/store/store";
-import ConfigureFood from "../ConfigureFood";
 
 export default function FoodResults({ results, setResults }) {
   const addConfiguration = useConfigureSotre((state) => state.addConfiguration);
@@ -14,10 +13,6 @@ export default function FoodResults({ results, setResults }) {
     <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-gray-400 scrollbar-track-slate-300 overflow-y-scroll bg-white shadow-md rounded-lg overflow-hidden max-h-80  mt-1 ">
       <ul>
         {results.map((result, id) => {
-          const ENERC_KCAL = parseInt(result.food.nutrients.ENERC_KCAL);
-          const CHOCDF = parseInt(result.food.nutrients.CHOCDF);
-          const FAT = parseInt(result.food.nutrients.FAT);
-          const PROCNT = parseInt(result.food.nutrients.PROCNT);
           return (
             <li
               key={id}
@@ -25,12 +20,15 @@ export default function FoodResults({ results, setResults }) {
             >
               <div className="px-3 py-2">
                 <h3 className="text-md font-semibold text-gray-800">
-                  {result.food.label}{" "}
+                  {result.name}
                 </h3>
 
-                <p className="mt-1 text-xs text-gray-600">
-                  <b>{ENERC_KCAL} kCal</b> - {CHOCDF}g Carbs, {FAT}g Fat,{" "}
-                  {PROCNT}g Protein
+                <p className="mt-1 text-xs text-blue-500">
+                  <b>Muscle Group:</b> {result.muscle}
+                </p>
+                <p className="mt-1 text-xs text-blue-500">
+                  <b>Equipment: </b>
+                  {result.equipment}
                 </p>
               </div>
               <button
@@ -57,4 +55,3 @@ export default function FoodResults({ results, setResults }) {
     </div>
   );
 }
-

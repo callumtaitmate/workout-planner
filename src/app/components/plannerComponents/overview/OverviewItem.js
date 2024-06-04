@@ -15,23 +15,25 @@ export default function OverviewItem({}) {
   return (
     <div>
       {overview.map((foods, id) => {
-        if (day === foods.day) {
+        if (day === foods.configure.result.day) {
           return (
             <ul key={id}>
               <div className="shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto my-2 bg-gray-100 flex  justify-between">
                 <div className="border-b border-gray-200  px-3 py-2 ">
-                  <h3 className="text-sm font-semibold text-gray-800">
-                    {foods.label} ({foods.quantity}g) - £{foods.price}
+                  <h3 className="text-md font-semibold text-gray-700">
+                    {foods.configure.result.name}
                   </h3>
 
-                  <p className="mt-1 text-xs text-gray-600">
-                    <b>{foods.kcal} kCal</b> - {foods.carb}g Carbs | {foods.fat}
-                    g Fat | {foods.prot}g Protein
+                  <p className="mt-1 text-xs text-gray-800">
+                    <b>Reps: </b>x{foods.configure.result.reps}
+                    <b> Sets:  </b> x{foods.configure.result.sets}
+                    <b> Weight: </b> {foods.configure.result.weight}Kgs
                   </p>
                 </div>
 
                 <button
-                  onClick={() => clearItem(foods.id, foods.day)}
+                  onClick={() => clearItem(foods.configure.result.id, foods.configure.result.day)}
+                  
                   className="bbg-white hover:bg-gray-100 text-blue-500 font-bold py-1 px-2 rounded-full focus:outline-none focus:shadow-outline mr-3"
                 >
                   <svg

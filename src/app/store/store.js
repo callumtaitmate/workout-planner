@@ -8,7 +8,7 @@ export const useOverviewStore = create((set) => ({
   clearItem: (foodId, foodDay) =>
     set((state) => ({
       overview: state.overview.filter(
-        (foods) => foods.id !== foodId || foods.day !== foodDay
+        (foods) => foods.configure.result.id !== foodId || foods.configure.result.day !== foodDay
       ),
     })),
 
@@ -18,18 +18,12 @@ export const useOverviewStore = create((set) => ({
 export const useConfigureSotre = create((set) => ({
   configure: {
     result: {
-      price: 0,
-      quantity: 100,
+      sets: 3,
+      reps: 8,
+      weight: 100,
       day: "Monday",
-      food: {
-        label: "Add food to start",
-        nutrients: {
-          ENERC_KCAL: 0,
-          CHOCDF: 0,
-          FAT: 0,
-          PROCNT: 0,
-        },
-      },
+      name: "Add Exercise to Start",
+      id: ""
     },
   },
   addConfiguration: (result) => set((state) => ({ configure: { result } })),
@@ -38,18 +32,12 @@ export const useConfigureSotre = create((set) => ({
     set({
       configure: {
         result: {
-          price: 0,
-          quantity: 100,
+          sets: 3,
+          reps: 8,
+          weight: 100,
           day: "Monday",
-          food: {
-            label: "Add food to start",
-            nutrients: {
-              ENERC_KCAL: 0,
-              CHOCDF: 0,
-              FAT: 0,
-              PROCNT: 0,
-            },
-          },
+          name: "Add Exercise to Start",
+          id: ""
         },
       },
     }),
