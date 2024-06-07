@@ -18,13 +18,13 @@ export default function OverviewItem({}) {
         if (day === foods.configure.result.day) {
           return (
             <ul key={id}>
-              <div className="shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto my-2 bg-gray-100 flex  justify-between">
-                <div className="border-b border-gray-200  px-3 py-2 ">
+              <div className="rounded-lg overflow-hidden max-h-80 overflow-y-auto bg-gray-100 flex  justify-between">
+                <div className="py-1">
                   <h3 className="text-md font-semibold text-gray-700">
                     {foods.configure.result.name}
                   </h3>
 
-                  <p className="mt-1 text-xs text-gray-800">
+                  <p className="text-xs text-gray-800">
                     <b>Reps: </b>x{foods.configure.result.reps}
                     <b> Sets:  </b> x{foods.configure.result.sets}
                     <b> Weight: </b> {foods.configure.result.weight}Kgs
@@ -34,7 +34,7 @@ export default function OverviewItem({}) {
                 <button
                   onClick={() => clearItem(foods.configure.result.id, foods.configure.result.day)}
                   
-                  className="bbg-white hover:bg-gray-100 text-blue-500 font-bold py-1 px-2 rounded-full focus:outline-none focus:shadow-outline mr-3"
+                  className="bbg-white hover:bg-gray-100 text-blue-500 font-bold py-1 px-1 rounded-full focus:outline-none focus:shadow-outline mr-1"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

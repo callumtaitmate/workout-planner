@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useDayStore } from "@/app/store/store";
 export default function Weeks() {
-
   const { day } = useDayStore((state) => ({
     day: state.day,
   }));
 
   const updateDay = useDayStore((state) => state.updateDay);
-
 
   return (
     <div className="display inline">

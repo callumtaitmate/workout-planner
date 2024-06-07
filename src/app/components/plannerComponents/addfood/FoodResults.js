@@ -10,7 +10,7 @@ export default function FoodResults({ results, setResults }) {
   };
 
   return (
-    <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-gray-400 scrollbar-track-slate-300 overflow-y-scroll bg-white shadow-md rounded-lg overflow-hidden max-h-80  mt-1 ">
+    <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-gray-400 scrollbar-track-gray-300 overflow-y-scroll bg-white shadow-sm rounded-lg overflow-hidden max-h-80  mt-1 ">
       <ul>
         {results.map((result, id) => {
           return (
@@ -19,20 +19,20 @@ export default function FoodResults({ results, setResults }) {
               className="border-b border-gray-200 hover:bg-gray-100 flex items-center justify-between"
             >
               <div className="px-3 py-2">
-                <h3 className="text-md font-semibold text-gray-800">
+                <h3 className="text-md font-semibold text-gray-600">
                   {result.name}
                 </h3>
 
-                <p className="mt-1 text-xs text-blue-500">
+                <p className="mt-1 text-xs text-gray-400">
                   <b>Muscle Group:</b> {result.muscle}
                 </p>
-                <p className="mt-1 text-xs text-blue-500">
+                <p className="mt-1 text-xs text-gray-400">
                   <b>Equipment: </b>
                   {result.equipment}
                 </p>
               </div>
               <button
-                className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-1 px-2 rounded-full focus:outline-none focus:shadow-outline mr-3"
+                className="bg-white text-blue-500 font-bold py-1 px-2 rounded-full focus:outline-none focus:shadow-outline mr-3"
                 onClick={() => HandleClick(result)}
               >
                 <svg

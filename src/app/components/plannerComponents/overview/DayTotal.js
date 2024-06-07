@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useOverviewStore, useDayStore } from "@/app/store/store";
-import { useSearchParams } from "next/navigation";
 
 export default function DayTotal() {
   const { overview } = useOverviewStore((state) => ({
@@ -43,7 +42,7 @@ export default function DayTotal() {
   return (
     <div>
       <div className="display flex justify-between">
-        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+        <p className="my-1 text-xs py-1 px-2 text-gray-700 rounded focus:outline-none focus:shadow-outline">
           <b>Daily Reps</b>
         </p>
         <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
@@ -52,7 +51,7 @@ export default function DayTotal() {
       </div>
 
       <div className="display flex justify-between">
-        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+        <p className="my-1 text-xs py-1 px-2 text-gray-700 rounded focus:outline-none focus:shadow-outline">
           <b>Daily Sets</b>
         </p>
         <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
@@ -60,7 +59,7 @@ export default function DayTotal() {
         </p>
       </div>
       <div className="display flex justify-between">
-        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+        <p className="my-1 text-xs py-1 px-2 text-gray-700 rounded focus:outline-none focus:shadow-outline">
           <b>Daily Weight</b>
         </p>
         <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">

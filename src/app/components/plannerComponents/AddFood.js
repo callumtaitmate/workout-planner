@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import FoodResults from "./addfood/FoodResults";
 export function AddFood({}) {
-  
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -10,7 +9,7 @@ export function AddFood({}) {
     const fetchData = async () => {
       const response = await fetch(`/api/exercises?query=${query}`);
       const exercises = await response.json();
-      setResults(exercises)
+      setResults(exercises);
     };
     if (query !== "" && query.length > 2) {
       fetchData();
@@ -20,18 +19,14 @@ export function AddFood({}) {
   const handleChange = (e) => {
     setQuery(e);
   };
-  
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-md">
+    <div className="rounded-lg p-6 bg-gray-100">
       <h3 className="text-xl font-semibold mb-3">Add Movement</h3>
-      <div className="bg-gray-100 p-2 rounded-lg shadow-sm">
-        <p className="text-xs text-red-400 font-semibold my-1">
-          (Basic Search Functionality)
-        </p>
-        <div className="relative mb-4 rounded-m">
+      <div className="rounded-lg">
+        <div className="relative mb-1 rounded-m">
           <input
-            className="mt-1 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm rounded-md"
+            className="mt-1 py-1 pl-1 focus:outline-none focus:ring-2 shadow-sm focus:ring-blue-500 block w-full sm:text-sm rounded-md"
             type="text"
             placeholder="Search for exercise"
             onChange={(e) => handleChange(e.target.value)}
@@ -53,6 +48,10 @@ export function AddFood({}) {
             </svg>
           </div>
         </div>
+        
+        <p className="text-xs text-right text-red-400 font-semibold my-1">
+          (Basic Search Functionality)
+        </p>
       </div>{" "}
       {results != null && (
         <FoodResults results={results} setResults={setResults} />

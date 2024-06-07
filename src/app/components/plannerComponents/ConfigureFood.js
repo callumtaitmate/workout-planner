@@ -38,14 +38,14 @@ export function ConfigureFood() {
   };
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-md">
-      <h3 className="text-xl font-semibold mb-3">Configure Movement</h3>
-      <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-gray-400 scrollbar-track-slate-300 bg-white shadow-md rounded-lg overflow-hidden max-h-80 overflow-y-auto">
+    <div className="bg-gray-100 rounded-lg p-6">
+      <h3 className="text-xl font-semibold mb-2">Configure Movement</h3>
+      <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-gray-400 scrollbar-track-slate-300 bg-whiterounded-lg overflow-hidden max-h-80 overflow-y-auto">
         <ul>
-          <li className="border-b border-gray-200 bg-gray-100">
+          <li className="bg-gray-100">
             <div>
               <ItemInfo hello={hello} />
-              <div className="px-3">
+              <div className="">
                 <h3 className="text-xs font-semibold text-gray-500">
                   Adjust Reps
                 </h3>
@@ -57,7 +57,7 @@ export function ConfigureFood() {
                   value={reps}
                   required
                   onChange={(e) => handleQuantity(e.target.valueAsNumber)}
-                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm rounded-md"
+                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full sm:text-sm rounded-md"
                 />
                 <h3 className="text-xs font-semibold text-gray-500 mt-2">
                   Adjust Sets
@@ -69,7 +69,7 @@ export function ConfigureFood() {
                   value={sets}
                   required
                   onChange={(e) => handlePrice(e.target.valueAsNumber)}
-                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm rounded-md"
+                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full sm:text-sm rounded-md"
                 />
                 <h3 className="text-xs font-semibold text-gray-500 mt-2">
                   Adjust Weight (Kgs)
@@ -81,7 +81,7 @@ export function ConfigureFood() {
                   value={weight}
                   required
                   onChange={(e) => handleWeight(e.target.valueAsNumber)}
-                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full shadow-sm sm:text-sm rounded-md"
+                  className="mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full sm:text-sm rounded-md"
                 />
               </div>
               <div className="flex justify-end my-4">

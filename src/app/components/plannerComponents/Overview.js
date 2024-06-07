@@ -4,8 +4,8 @@ import { useOverviewStore } from "@/app/store/store";
 import Weeks from "./overview/weeks";
 import OverviewItem from "./overview/OverviewItem";
 import Download from "./overview/Download";
-import DayTotal from "./overview/DayTotal"
-import WeekTotal from "./overview/WeekTotal"
+import DayTotal from "./overview/DayTotal";
+import WeekTotal from "./overview/WeekTotal";
 
 export function Overview() {
   const { clearAll } = useOverviewStore((state) => ({
@@ -13,15 +13,17 @@ export function Overview() {
   }));
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-md">
+    <div className="bg-gray-100 rounded-lg p-6 shadow-md">
       <h3 className="text-xl font-semibold mb-3">Weekly Overview</h3>
       <Weeks />
-      <OverviewItem />
-      <div className="bg-gray-100 rounded-lg px-3 py-2 shadow-md mt-2">
+      <div className="mt-2">
+        <OverviewItem />
+      </div>
+      <div className="bg-gray-100 rounded-lg py-2 mt-2">
         <div>
           <DayTotal />
           <WeekTotal />
-          <div className="">
+          <div className="mt-2">
             <button
               onClick={() => clearAll()}
               className="w-full text-center bg-red-500 hover:bg-red-600 text-white text-xs font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"

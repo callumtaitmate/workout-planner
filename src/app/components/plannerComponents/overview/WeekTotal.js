@@ -35,7 +35,7 @@ export default function WeekTotal() {
   return (
     <div>
       <div className="display flex justify-between">
-        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+        <p className="my-1 text-xs py-1 px-2 text-gray-700  rounded focus:outline-none focus:shadow-outline">
           <b>Weekly Reps</b>
         </p>
         <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
@@ -44,7 +44,7 @@ export default function WeekTotal() {
       </div>
 
       <div className="display flex justify-between">
-        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+        <p className="my-1 text-xs py-1 px-2 text-gray-700 rounded focus:outline-none focus:shadow-outline">
           <b>Weekly Sets</b>
         </p>
         <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">
@@ -52,7 +52,7 @@ export default function WeekTotal() {
         </p>
       </div>
       <div className="display flex justify-between">
-        <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2  rounded focus:outline-none focus:shadow-outline">
+        <p className="my-1 text-xs py-1 px-2 text-gray-700 rounded focus:outline-none focus:shadow-outline">
           <b>Weekly Weight</b>
         </p>
         <p className="my-1 text-xs text-center text-white bg-gray-500 py-1 px-2 ml-4 rounded focus:outline-none focus:shadow-outline">

@@ -11,12 +11,12 @@ export default function ItemInfo({ hello, quantity }) {
 
   return (
     <div className="flex items-center justify-between">
-      <div className="px-3 py-2">
+      <div className="mt-2">
         <h3
           className={
             hello.result.name === "Add Exercise to Start"
-              ? "text-md font-semibold text-blue-400"
-              : "text-md font-semibold text-gray-800"
+              ? "text-md font-semibold text-red-400"
+              : "text-md font-semibold text-gray-600"
           }
         >
           {hello.result.name}
@@ -29,7 +29,7 @@ export default function ItemInfo({ hello, quantity }) {
         
         <button
           onClick={() => clearConfiguration()}
-          className="bbg-white hover:bg-gray-100 text-blue-500 font-bold py-1 px-2 rounded-full focus:outline-none focus:shadow-outline mr-3"
+          className="bbg-white hover:bg-gray-100 text-blue-500 font-bold py-1 rounded-full focus:outline-none focus:shadow-outline mr-1 mt-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
