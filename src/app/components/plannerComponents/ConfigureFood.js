@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import {
   useConfigureSotre,
-  useOverviewStore,
   useDayStore,
 } from "@/app/store/store";
 import { v4 as uuidv4 } from "uuid";
@@ -16,7 +15,7 @@ export function ConfigureFood() {
   }));
 
   const { hello } = useConfigureSotre((state) => ({
-    hello: state.configure,
+    hello: state.exercise,
   }));
 
   const [reps, setReps] = useState(8);

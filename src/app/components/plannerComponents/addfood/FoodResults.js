@@ -2,10 +2,10 @@ import React from "react";
 import { useConfigureSotre } from "@/app/store/store";
 
 export default function FoodResults({ results, setResults }) {
-  const addConfiguration = useConfigureSotre((state) => state.addConfiguration);
+  const addExercise = useConfigureSotre((state) => state.addExercise);
 
   const HandleClick = (result) => {
-    addConfiguration(result);
+    addExercise(result);
     setResults(null);
   };
 

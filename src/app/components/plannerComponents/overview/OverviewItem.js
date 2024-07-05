@@ -1,13 +1,13 @@
 import React from "react";
 import { useDayStore } from "@/app/store/store";
-import { useOverviewStore } from "@/app/store/store";
+import { useExerciseStore } from "@/app/store/store";
 
 export default function OverviewItem({}) {
   const { day } = useDayStore((state) => ({
     day: state.day,
   }));
 
-  const { overview, clearItem } = useOverviewStore((state) => ({
+  const { overview, clearItem } = useExerciseStore((state) => ({
     overview: state.overview,
     clearItem: state.clearItem,
   }));

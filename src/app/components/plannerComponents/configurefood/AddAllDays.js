@@ -1,8 +1,8 @@
 import React from "react";
-import { useOverviewStore } from "@/app/store/store";
+import { useExerciseStore } from "@/app/store/store";
 
 export default function AddAllDays({ hello, reps, sets, weight, id }) {
-  const updateOverview = useOverviewStore((state) => state.addToOverview);
+  const updateOverview = useExerciseStore((state) => state.addToOverview);
 
   const monday = {
     configure: {

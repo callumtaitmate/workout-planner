@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { CSVLink, CSVDownload } from "react-csv";
-import { useOverviewStore } from "@/app/store/store";
+import { useExerciseStore } from "@/app/store/store";
 
 export default function Download() {
-  const { data } = useOverviewStore((state) => ({
+  const { data } = useExerciseStore((state) => ({
     data: state.overview,
   }));
 

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import { useOverviewStore } from "@/app/store/store";
+import { useExerciseStore } from "@/app/store/store";
 import { v4 as uuidv4 } from "uuid";
 
 export default function AddCurrentDay({ hello, reps, sets, weight, day }) {
-  const updateOverview = useOverviewStore((state) => state.addToOverview);
+  const updateOverview = useExerciseStore((state) => state.addToOverview);
 
   const [id, setId] = useState("")
 

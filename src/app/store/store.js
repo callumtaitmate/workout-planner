@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export const useOverviewStore = create((set) => ({
+export const useExerciseStore = create((set) => ({
   overview: [],
   addToOverview: (postCalcObject) =>
     set((state) => ({ overview: [...state.overview, postCalcObject] })),
@@ -16,7 +16,7 @@ export const useOverviewStore = create((set) => ({
 }));
 
 export const useConfigureSotre = create((set) => ({
-  configure: {
+  exercise: {
     result: {
       sets: 3,
       reps: 8,
@@ -26,11 +26,11 @@ export const useConfigureSotre = create((set) => ({
       id: ""
     },
   },
-  addConfiguration: (result) => set((state) => ({ configure: { result } })),
+  addExercise: (result) => set((state) => ({ exercise: { result } })),
 
-  clearConfiguration: () =>
+  clearExercise: () =>
     set({
-      configure: {
+      exercise: {
         result: {
           sets: 3,
           reps: 8,

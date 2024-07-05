@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useOverviewStore, useDayStore } from "@/app/store/store";
+import { useExerciseStore, useDayStore } from "@/app/store/store";
 
 export default function DayTotal() {
-  const { overview } = useOverviewStore((state) => ({
+  const { overview } = useExerciseStore((state) => ({
     overview: state.overview,
   }));
 

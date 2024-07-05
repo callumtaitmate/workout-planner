@@ -1,8 +1,8 @@
 import React from "react";
-import { useOverviewStore } from "@/app/store/store";
+import { useExerciseStore } from "@/app/store/store";
 
 export default function WeekTotal() {
-  const { overview } = useOverviewStore((state) => ({
+  const { overview } = useExerciseStore((state) => ({
     overview: state.overview,
   }));
 

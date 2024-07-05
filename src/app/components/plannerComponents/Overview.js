@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useOverviewStore } from "@/app/store/store";
+import { useExerciseStore } from "@/app/store/store";
 import Weeks from "./overview/weeks";
 import OverviewItem from "./overview/OverviewItem";
 import Download from "./overview/Download";
@@ -8,7 +8,7 @@ import DayTotal from "./overview/DayTotal";
 import WeekTotal from "./overview/WeekTotal";
 
 export function Overview() {
-  const { clearAll } = useOverviewStore((state) => ({
+  const { clearAll } = useExerciseStore((state) => ({
     clearAll: state.clearAll,
   }));
 

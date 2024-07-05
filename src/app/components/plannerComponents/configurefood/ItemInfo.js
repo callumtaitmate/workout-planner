@@ -3,8 +3,8 @@ import { useConfigureSotre } from "@/app/store/store";
 
 export default function ItemInfo({ hello, quantity }) {
 
-  const { clearConfiguration } = useConfigureSotre((state) => ({
-    clearConfiguration: state.clearConfiguration,
+  const { clearExercise } = useConfigureSotre((state) => ({
+    clearExercise: state.clearExercise,
     
   }));
   
@@ -28,7 +28,7 @@ export default function ItemInfo({ hello, quantity }) {
       {hello.result.name === "Add Exercise to Start" ? (null) : (
         
         <button
-          onClick={() => clearConfiguration()}
+          onClick={() => clearExercise()}
           className="bbg-white hover:bg-gray-100 text-blue-500 font-bold py-1 rounded-full focus:outline-none focus:shadow-outline mr-1 mt-2"
         >
           <svg
